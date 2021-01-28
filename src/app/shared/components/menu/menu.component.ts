@@ -12,11 +12,11 @@ export class MenuComponent implements OnInit {
   dataMenu: Menu[] = [
     {
       Name: 'Accounts',
-      Path: 'account'
+      Path: '/dashboard/account'
     },
     {
       Name: 'New Product',
-      Path: 'products'
+      Path: '/dashboard/products'
     }
   ]
 

@@ -1,1 +1,18 @@
-<p>dashboard works!</p>
+<ng-container>
+    <mat-toolbar class="example-header" style="background-color: white">
+      <app-top-menu></app-top-menu>
+    </mat-toolbar>
+  
+    <mat-sidenav-container class="example-container">
+      <mat-sidenav #sidenav mode="side" opened class="example-sidenav" [fixedInViewport]="true">
+        <app-menu></app-menu>
+      </mat-sidenav>
+  
+      <mat-sidenav-content style="background-color: white">
+        <router-outlet></router-outlet>
+        <!-- <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p> -->
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  
+    <mat-toolbar class="example-footer"></mat-toolbar>
+  </ng-container>
