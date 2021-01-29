@@ -22,13 +22,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr *ngFor="let data of dataAccounts" (click)="selectAccount(data)">
                                 <th scope="row"></th>
-                                <td>Savings</td>
-                                <td>12455****- Kaiser</td>
-                                <td>Active</td>
-                                <td>USD</td>
-                                <td>$200.0</td>
+                                <td> {{data.Type}} </td>
+                                <td> {{data.AccountName}} </td>
+                                <td>{{data.Status}}</td>
+                                <td>{{data.Currency}}</td>
+                                <td>{{data.Balance | currency:data.Currency}}</td>
                             </tr>
                             
                         </tbody>
