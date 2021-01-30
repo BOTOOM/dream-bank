@@ -23,12 +23,12 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  get DocumentInvalid() {
-    return this.LogInForm.get('Document').invalid  && this.LogInForm.get('Document').touched;
-  }
-
-  get PasswordInvalid() {
-    return this.LogInForm.get('Password').invalid  && this.LogInForm.get('Password').touched;
+  isInvalid(nombre: string) {
+    const input = this.LogInForm.get(nombre);
+    if (input)
+      return input.invalid && (input.touched || input.dirty);
+    else
+      return true;
   }
 
   login() {

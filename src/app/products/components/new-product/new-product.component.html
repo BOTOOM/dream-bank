@@ -1,0 +1,95 @@
+<div class="container-new-product">
+
+  <div class="row m-0 p-0">
+    <div class="col-12">logo</div>
+  </div>
+  <div class="row m-0 p-0 mt-3">
+    <div class="col-md-2 col-1 col-lg-3 col-xl-4 d-none d-md-block"></div>
+    <div class="card bg-card-custom my-0 p-0 border-0 col-md-8 col-lg-6 col-xl-4 col-12">
+      <div class="card-body row">
+        <div class="col-12 d-flex justify-content-center">
+          <h2 class="h2 h3-sm h1-xs text-light">Request</h2>
+        </div>
+        <div class="d-flex col-12 justify-content-center">
+          <div class=" line px-5"></div>
+        </div>
+        <div class="col-12 d-flex justify-content-center mt-5">
+          <h1 class="h1 h2-sm h1-xs text-light message_registry">New Product</h1>
+        </div>
+        <div class="col-12 d-flex justify-content-center mt-5 mb-3">
+          <h4 class="h6 h3-sm h1-xs col-11 text-light text-center">Instant payments, and a lot of withdrawl methods
+            available.</h4>
+        </div>
+
+        <div class="col-12 px-4">
+          <form class="text-left" novalidate [formGroup]="newProductForm" (ngSubmit)="register()">
+            <div>
+
+              <div class="form-group row p-1 pb-4 text-light">
+                <label class="col-xl-2 col-md-3 col-sm-2 form-label p-0 mt-2">Product</label>
+                <div class="col-xl-10 col-md-9 col-sm-10 selectdiv">
+                  <select class="form-control form-select bg-card-custom text-light" formControlName="Product"
+                    [class.is-invalid]="isInvalid('Product')">
+                    <option selected>Open this select menu</option>
+                    <option>Opcion 1</option>
+                    <option>Opcion 2</option>
+                    <option>Opcion 3</option>
+                  </select>
+                  <small *ngIf="isInvalid('Product')" class="text-danger">
+                    Select a product
+                  </small>
+                </div>
+              </div>
+
+              <div class="form-group row p-1 pb-4 text-light">
+                <label class="col-xl-2 col-md-3 col-sm-2 form-label p-0 mt-2">CellPhone</label>
+                <div class="col-xl-10 col-md-9 col-sm-10">
+                  <input class="form-control bg-card-custom text-light border-light" type="text" placeholder=""
+                    formControlName="cellPhone" [class.is-invalid]="isInvalid('cellPhone')">
+                  <small class="text-light">
+                    Write the number you want to be contacted at
+                  </small>
+                  <br>
+                  <small *ngIf="isInvalid('cellPhone')" class="text-danger">
+                    Enter a valid CellPhone number
+                  </small>
+                </div>
+              </div>
+
+              <div class="form-group row p-1 pb-4 text-light">
+                <label class="col-xl-2 col-md-3 col-sm-2 form-label p-0">Monthly Income</label>
+                <div class="col-xl-10 col-md-9 col-sm-10 ">
+                  <input class="form-control bg-card-custom text-light border-light" type="text" placeholder=""
+                    formControlName="monthlyIncome" [class.is-invalid]="isInvalid('monthlyIncome')">
+                  <!-- <span class="input-group-text" >USD</span> -->
+                  <small class="text-light">
+                    Give us an average income
+                  </small>
+                  <br>
+                  <small *ngIf="isInvalid('monthlyIncome')" class="text-danger">
+                    Enter a value of Monthly Income
+                  </small>
+                </div>
+              </div>
+
+
+
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-block p-2 col-10 button-registry"
+                  [disabled]="newProductForm.invalid">Send</button>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-link btn-block p-2 col-10 button-Cancel" (click)="back()">Cancel</button>
+              </div>
+              <div class="py-1"></div>
+
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 col-1 col-lg-3 col-xl-4 d-none d-md-block"></div>
+  </div>
+
+</div>

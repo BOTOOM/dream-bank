@@ -13,6 +13,7 @@ export class TransactionDetailComponent implements OnInit {
     Status: 'Acredited',
     Currency: "USD",
     Value: -2485,
+    Taxes: 234,
     Balance: 2485
   }
 
