@@ -16,7 +16,7 @@ export class MenuComponent implements OnInit {
     },
     {
       Name: 'New Product',
-      Path: '/dashboard/products'
+      Path: '/products/new'
     }
   ]
 

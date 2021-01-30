@@ -1,0 +1,56 @@
+.message_registry {
+    font-size: 3rem;
+    font-weight: 500;
+
+}
+
+.message {
+    font-size: 1rem;
+    font-weight: 400;
+
+}
+
+.button-registry {
+    font-size: 1.4rem;
+    font-weight: 550;
+    border-radius: 30px;
+    background-color:#00f2e6;
+    color: #022857;
+}
+
+.button-Cancel {
+    font-size: 1.3rem;
+    border-radius: 30px;
+    color: white;
+    background-color: rgba(245, 245, 245, 0);
+    text-decoration:none
+
+    // background-color:#00f2e6;
+}
+
+.container-new-product {
+    background-color: #012c61;
+    height: 100%;
+}
+
+.bg-card-custom {
+    background-color: rgba(245, 245, 245, 0);
+    height: 3rem;
+    // opacity: .4;
+}
+
+.line {
+    width: 5rem;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #00f2e6;
+}
+
+option {
+    background-color: #184378 !important;
+    color: white;
+    height: 3rem !important;
+
+}
+
+

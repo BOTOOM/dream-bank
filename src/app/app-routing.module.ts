@@ -17,6 +17,10 @@ const routes: Routes = [
     loadChildren: () => import('./bank/bank.module').then(m => m.BankModule)
   },
   {
+    path: 'products',
+    loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)
+  },
+  {
     path: '**',
     redirectTo: 'dashboard/account',
     pathMatch: 'full'
