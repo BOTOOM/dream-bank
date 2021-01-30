@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import {MatCardModule} from '@angular/material/card';
 
+import { SharedModule } from '../shared/shared.module';
 
 import { AccountRoutingModule } from './account-routing.module';
 import { AllAcountsComponent } from './components/all-acounts/all-acounts.component';
@@ -19,6 +20,7 @@ import { TransactionDetailComponent } from './components/transaction-detail/tran
   imports: [
     CommonModule,
     MatCardModule,
+    SharedModule,
     AccountRoutingModule
   ]
 })
