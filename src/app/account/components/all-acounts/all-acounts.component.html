@@ -1,0 +1,38 @@
+
+<div class="row m-0 p-0 mt-3">
+    <div class="col-12">
+        <div class="row row m-0 p-0">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>Accounts</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr class="text-primary">
+                                <th scope="col"></th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Account Name</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Currency</th>
+                                <th scope="col">Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let data of dataAccounts" (click)="selectAccount(data)">
+                                <th scope="row"></th>
+                                <td> {{data.Type}} </td>
+                                <td> {{data.AccountName}} </td>
+                                <td>{{data.Status}}</td>
+                                <td>{{data.Currency}}</td>
+                                <td>{{data.Balance | currency:data.Currency}}</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </mat-card-content>
+            </mat-card>
+
+        </div>
+    </div>
+</div>

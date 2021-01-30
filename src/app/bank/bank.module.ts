@@ -6,18 +6,23 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { BankRoutingModule } from './bank-routing.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { StatusBarComponent } from './components/status-bar/status-bar.component';
+
 
 import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
-  declarations: [DashboardComponent],
+  declarations: [
+    DashboardComponent,
+    StatusBarComponent,
+  ],
   imports: [
     CommonModule,
     MatToolbarModule,
     MatSidenavModule,
     SharedModule,
-    BankRoutingModule
+    BankRoutingModule,
   ]
 })
 export class BankModule { }
