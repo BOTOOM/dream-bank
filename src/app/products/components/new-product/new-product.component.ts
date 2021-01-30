@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-product',
@@ -15,6 +16,7 @@ export class NewProductComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private location: Location,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -36,11 +38,10 @@ export class NewProductComponent implements OnInit {
   }
 
   register() {
-    
+    this.router.navigate(['/products/requested'])
   }
 
   back() {
     this.location.back();
-
   }
 }
