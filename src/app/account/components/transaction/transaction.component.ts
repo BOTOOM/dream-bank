@@ -12,6 +12,7 @@ export class TransactionComponent implements OnInit {
     {
       Date: new Date(),
       Description: 'PAYMENT',
+      Status: 'Acredited',
       Currency: "USD",
       Value: -2485,
       Balance: 2485
@@ -19,6 +20,7 @@ export class TransactionComponent implements OnInit {
     {
       Date: new Date(),
       Description: 'IVA',
+      Status: 'Denied',
       Currency: 'USD',
       Value: 37895,
       Balance: 37895

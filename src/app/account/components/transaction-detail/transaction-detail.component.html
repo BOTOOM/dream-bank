@@ -1,1 +1,27 @@
-<p>transaction-detail works!</p>
+<div class="row m-0 p-0 mt-5">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <div class="row row m-0 p-0">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title > <small> Transaction detail</small></mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="row m-3">
+                        <div class="col-6">
+                            <p> <strong>Date: </strong>  {{ dataTransaction.Date |  date:'dd/MM/YYYY h:mm:ss a'}}</p>
+                            <p> <strong>Status: </strong>  {{ dataTransaction.Status }}</p>
+                            <p> <strong>Currency: </strong>  {{ dataTransaction.Currency }}</p>
+                        </div>
+                        <div class="col-6">
+                            <p> <strong>Description: </strong>  {{ dataTransaction.Description }}</p>
+                            <p> <strong>Value: </strong>  {{ dataTransaction.Value| currency }}</p>
+                            <p> <strong>Balance: </strong>  {{ dataTransaction.Balance |currency }}</p>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+    <div class="col-2"></div>
+</div>

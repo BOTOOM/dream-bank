@@ -7,6 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionDetailComponent implements OnInit {
 
+  dataTransaction = {
+    Date: new Date(),
+    Description: 'PAYMENT',
+    Status: 'Acredited',
+    Currency: "USD",
+    Value: -2485,
+    Balance: 2485
+  }
+
   constructor() { }
 
   ngOnInit(): void {
