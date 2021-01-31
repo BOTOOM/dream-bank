@@ -10,12 +10,12 @@ export class LoginService {
     private firestore: AngularFirestore
   ) { }
 
-  login() {
+  login(user) {
     // return this.firestore.collection('User').get();
 
 
     return this.firestore
-    .collection('User', ref => ref.where('Identification', '==', '605284')
-    .where('population', '>', 100000)).get();
+    .collection('User', ref => ref.where('Identification', '==', `${user.user}`)
+    .where('Password', '==', `${user.password}`)).get();
   }
 }

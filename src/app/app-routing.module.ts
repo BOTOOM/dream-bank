@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard/account',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -22,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'dashboard/account',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
 ];

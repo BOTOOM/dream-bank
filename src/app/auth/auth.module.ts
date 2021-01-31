@@ -7,6 +7,10 @@ import { environment } from '../../environments/environment';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './components/login/login.component';
+import { StoreModule } from '@ngrx/store';
+import * as fromLogin from './reducers/login.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { LoginEffects } from './effects/login.effects';
 
 
 @NgModule({
@@ -16,7 +20,9 @@ import { LoginComponent } from './components/login/login.component';
     ReactiveFormsModule, 
     FormsModule,
     AuthRoutingModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    StoreModule.forFeature(fromLogin.loginFeatureKey, fromLogin.reducer),
+    EffectsModule.forFeature([LoginEffects])
   ]
 })
 export class AuthModule { }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CookieHandlerService } from '../../service/cookie-handler.service';
 
 @Component({
   selector: 'app-top-menu',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopMenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private cookieHandlerService: CookieHandlerService,
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  Logout() {
+    this.cookieHandlerService.deleteCookie('UserCookie')
+    this.router.navigate(['/login']);
+
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieHandlerService } from 'src/app/shared/service/cookie-handler.service';
 
 @Component({
   selector: 'app-status-bar',
@@ -8,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class StatusBarComponent implements OnInit {
 
   date= new Date();
+  dataUser: any;
 
-  constructor() { }
+  constructor(
+    private cookieHandlerService: CookieHandlerService,
+  ) { }
 
   ngOnInit(): void {
+    this.dataUser = this.cookieHandlerService.getUserCookie();
   }
 
 }
