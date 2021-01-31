@@ -1,0 +1,26 @@
+<div class="contrainer-bar col-12">
+    <div class="row m-0 p-0">
+        <div class="py-1"></div>
+        <div class="col-1 m-0 p-0"></div>
+        <div class="col-6">
+            <img src="https://unsplash.it/256/256/?random" class="m-3 float-start rouded-img" alt="...">
+            <div class="mt-4 p-3">
+                <p class="text-wellcome">Wellcome back  {{dataUser.data.Firstname}} !</p>
+                <p class="text-message">Your last login was {{ date | date:'long' }} </p>
+            </div>
+        </div>
+        <div class="col-2">
+            <div  class="mt-3 pt-3">
+                <p class="text-message">Total Balance</p>
+                <p class="text-balance" > $ 178542</p>
+            </div>
+        </div>
+        <div class="col-3 m-0 p-0">
+            <div class="text-center mt-2 pt-2">
+                <button type="button" class="btn btn-outline-primary p-2 m-1 col-6  btn-block button-action text-light" [routerLink]="'/products/new'">Request new product</button>
+                <button type="button" class="btn btn-outline-primary p-2  col-6  btn-block button-action text-light">Make a Transfer</button>
+            </div>
+        </div>
+        <div class="py-1"></div>
+    </div>
+</div>
