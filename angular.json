@@ -131,6 +131,7 @@
   },
   "defaultProject": "dream-bank",
   "cli": {
-    "analytics": false
+    "analytics": false,
+    "defaultCollection": "@ngrx/schematics"
   }
 }
