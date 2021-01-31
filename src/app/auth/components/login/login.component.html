@@ -39,7 +39,7 @@
               <label class="col-xl-2 col-md-3 col-sm-2 form-label p-0">Password</label>
               <div class="col-xl-10 col-md-9 col-sm-10">
 
-                <input class="form-control border-primary" type="text" placeholder="" formControlName="Password"
+                <input class="form-control border-primary text-primary" type="password" placeholder="" formControlName="Password"
                   [class.is-invalid]="isInvalid('Password')">
                 <small *ngIf="isInvalid('Password')" class="text-danger">
                   Enter the password
@@ -52,9 +52,7 @@
                 [disabled]="LogInForm.invalid">Login</button>
             </div>
             <div class="py-1"></div>
-
           </div>
-
         </form>
       </div>
     </div>

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { Sha256Service } from './sha256.service';
+import { Sha512Service } from './sha512.service';
 
-describe('Sha256Service', () => {
-  let service: Sha256Service;
+describe('Sha512Service', () => {
+  let service: Sha512Service;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(Sha256Service);
+    service = TestBed.inject(Sha512Service);
   });
 
   it('should be created', () => {

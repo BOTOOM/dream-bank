@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Sha512Service } from '../../../shared/service/sha512.service';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private encrypt: Sha512Service,
 
   ) { }
 
@@ -32,6 +34,9 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    console.log( this.LogInForm.value.Password )
+    console.log( this.encrypt.encrypt(this.LogInForm.value.Password) )
+
     // this.onLogin();
   }
 
