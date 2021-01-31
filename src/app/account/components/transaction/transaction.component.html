@@ -1,0 +1,47 @@
+<div class="row m-0 p-0">
+    <div class="card col-12 card-account">
+        <div class="card-body">
+          54515*** -wolfee
+        </div>
+      </div>
+</div>
+<div class="row m-2">
+    <app-button-back></app-button-back>
+</div>
+<div class="row m-0 p-0 mt-3">
+    <div class="col-12">
+        <div class="row row m-0 p-0">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title class="text-primary"> <small> Last Transactions</small></mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr class="text-primary">
+                                <th scope="col">Date</th>
+                                <th scope="col">Descroption</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Currency</th>
+                                <th scope="col">Value</th>
+                                <th scope="col">Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let transaction of dataTransaction" (click)="selectTransaction(transaction)" >
+                                <td> {{transaction.Date | date:'dd/MM/YYYY h:mm:ss a'}} </td>
+                                <td> {{transaction.Description}} </td>
+                                <td>{{transaction.Status}}</td>
+                                <td>{{transaction.Currency}}</td>
+                                <td>{{transaction.Value| currency}}</td>
+                                <td>{{transaction.Balance | currency}}</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </mat-card-content>
+            </mat-card>
+
+        </div>
+    </div>
+</div>
