@@ -4,15 +4,14 @@ import { AngularFirestore } from '@angular/fire/firestore';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class AccountService {
 
   constructor(
     private firestore: AngularFirestore
   ) { }
 
-  login(user) {
+  getAccounts(userId) {
     return this.firestore
-    .collection('User', ref => ref.where('Identification', '==', `${user.user}`)
-    .where('Password', '==', `${user.password}`)).get();
+    .collection('Account', ref => ref.where('User', '==', `${userId}`)).get();
   }
 }

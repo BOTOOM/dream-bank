@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { User } from '../../auth/models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -29,10 +30,10 @@ export class CookieHandlerService {
     document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
   }
 
-  getUserCookie() {
+  getUserCookie(): User {
     let userCookie: any = this.getCookie('UserCookie');
     if (userCookie !== null) {
-      userCookie = JSON.parse(userCookie);
+      userCookie = JSON.parse(userCookie) as User;
     }
     return userCookie;
   }

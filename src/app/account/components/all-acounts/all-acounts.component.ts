@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { CookieHandlerService } from 'src/app/shared/service/cookie-handler.service';
+import { loadAccounts } from '../../actions/account.actions';
+import { getAccounts } from '../../selectors/account.selectors';
+import { Account } from '../../models/account.model';
+import { SharedService } from '../../../shared/service/shared.service';
 
 @Component({
   selector: 'app-all-acounts',
@@ -8,34 +14,31 @@ import { Router } from '@angular/router';
 })
 export class AllAcountsComponent implements OnInit {
 
-  dataAccounts = [
-    {
-      Type: 'Savings',
-      AccountName: '12455**** - Kaiser',
-      Status: "Active",
-      Currency: "USD",
-      Balance: 200
-    },
-    {
-      Type: 'Checking',
-      AccountName: '54851**** - Wolfee',
-      Status: "Active",
-      Currency: "USD",
-      Balance: 5872
-    },
+  dataAccounts: Account[] = [
   ]
 
   constructor(
     private router: Router,
-  ) { }
+    private cookieHandlerService: CookieHandlerService,
+    private store: Store<any>,
+    private sharedService: SharedService
+    ) {
+          this.store.dispatch(loadAccounts( {id: this.cookieHandlerService.getUserCookie().id} ))
+     }
 
   ngOnInit(): void {
+    this.store.select(getAccounts).subscribe( data => {
+      if (data.data) {
+        console.log(data.data)
+        this.dataAccounts = data.data
+      }
+
+    } )
   }
 
   selectAccount(data) {
     console.log(data)
     this.router.navigate([`dashboard/account/transaction`]);
-
   }
 
 }
