@@ -5,11 +5,16 @@ export const accountFeatureKey = 'account';
 
 export interface State {
   Accounts: any
-
+  SelectedAccound: any
+  Transactions: any
+  SelectecTransaction: any
 }
 
 export const initialState: State = {
-  Accounts: null
+  Accounts: null,
+  SelectedAccound: null,
+  Transactions: null,
+  SelectecTransaction: null,
 };
 
 
@@ -24,5 +29,16 @@ export const reducer = createReducer(
   })),
   on(AccountActions.loadAccountsFailure, (state, action) => state),
 
+  on(AccountActions.loadSelectedAccounts, (state, action) => ({
+    ...state, SelectedAccound: state.SelectedAccound = action
+  })),
+
+  on(AccountActions.loadTransactions, (state, action) => ({
+    ...state, Transactions: state.Transactions = action
+  })),
+
+  on(AccountActions.loadSelectedTransaction, (state, action) => ({
+    ...state, SelectecTransaction: state.SelectecTransaction = action
+  })),
 );
 

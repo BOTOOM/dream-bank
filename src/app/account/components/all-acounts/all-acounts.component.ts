@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { CookieHandlerService } from 'src/app/shared/service/cookie-handler.service';
-import { loadAccounts } from '../../actions/account.actions';
+import { loadAccounts, loadSelectedAccounts } from '../../actions/account.actions';
 import { getAccounts } from '../../selectors/account.selectors';
 import { Account } from '../../models/account.model';
 import { SharedService } from '../../../shared/service/shared.service';
@@ -29,7 +29,6 @@ export class AllAcountsComponent implements OnInit {
   ngOnInit(): void {
     this.store.select(getAccounts).subscribe( data => {
       if (data.data) {
-        console.log(data.data)
         this.dataAccounts = data.data
       }
 
@@ -37,7 +36,8 @@ export class AllAcountsComponent implements OnInit {
   }
 
   selectAccount(data) {
-    console.log(data)
+    // console.log(data)
+    this.store.dispatch(loadSelectedAccounts(data))
     this.router.navigate([`dashboard/account/transaction`]);
   }
 

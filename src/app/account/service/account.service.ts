@@ -10,8 +10,13 @@ export class AccountService {
     private firestore: AngularFirestore
   ) { }
 
-  getAccounts(userId) {
+  getAccounts(userId: string) {
     return this.firestore
     .collection('Account', ref => ref.where('User', '==', `${userId}`)).get();
+  }
+
+  getTransaction(AccountId: string) {
+    return this.firestore
+    .collection('Transaction', ref => ref.where('AccountId', '==', `${AccountId}`)).get();
   }
 }

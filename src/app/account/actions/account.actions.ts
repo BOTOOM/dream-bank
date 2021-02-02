@@ -5,6 +5,21 @@ export const loadAccounts = createAction(
   props<any>()
 );
 
+export const loadSelectedAccounts = createAction(
+  '[Account] Get Selected Accounts',
+  props<any>()
+);
+
+export const loadTransactions = createAction(
+  '[Account] Get Transactions',
+  props<any>()
+);
+
+export const loadSelectedTransaction = createAction(
+  '[Account] Get Selected Transactions',
+  props<any>()
+);
+
 export const loadAccountsSuccess = createAction(
   '[Account] Load Accounts Success',
   props<{ data: any }>()

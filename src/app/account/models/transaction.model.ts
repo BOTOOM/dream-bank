@@ -5,5 +5,7 @@ export class Transaction {
     Description: string;
     Status: string;
     Taxes: number;
-    Value: number
+    Value: number;
+    Currency: string
+    Id: String;
 }

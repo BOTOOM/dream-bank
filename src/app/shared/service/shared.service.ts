@@ -9,9 +9,8 @@ export class SharedService {
 
 
   public IfStore(data: any) {
-    console.log(data)
     if (data) {
-      if ((Object.keys(data)[0] !== 'type') && (Object.keys(data)[0] !== 'id') ) {
+      if ((Object.keys(data)['data'] !== 'type') && (Object.keys(data)[0] !== 'id') ) {
         return true;
       } else {
         return false;

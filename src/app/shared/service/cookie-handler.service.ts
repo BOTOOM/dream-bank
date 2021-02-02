@@ -27,7 +27,7 @@ export class CookieHandlerService {
   }
 
   deleteCookie(name: string) {
-    document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 2000 00:00:01 GMT;';
   }
 
   getUserCookie(): User {

@@ -9,3 +9,18 @@ export const getAccounts = createSelector(
   selectAccountState,
   (state: fromAccount.State) => state.Accounts
 );
+
+export const getSelectedAccounts = createSelector(
+  selectAccountState,
+  (state: fromAccount.State) => state.SelectedAccound
+);
+
+export const getTransactions = createSelector(
+  selectAccountState,
+  (state: fromAccount.State) => state.Transactions
+);
+
+export const getSelectedTransactions = createSelector(
+  selectAccountState,
+  (state: fromAccount.State) => state.SelectecTransaction
+);
