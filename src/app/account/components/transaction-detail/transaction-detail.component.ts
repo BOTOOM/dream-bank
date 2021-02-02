@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { getSelectedTransactions} from '../../selectors/account.selectors';
+import { Transaction } from '../../models/transaction.model';
+
 
 @Component({
   selector: 'app-transaction-detail',
@@ -7,17 +12,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionDetailComponent implements OnInit {
 
-  dataTransaction = {
-    Date: new Date(),
-    Description: 'PAYMENT',
-    Status: 'Acredited',
-    Currency: "USD",
-    Value: -2485,
-    Taxes: 234,
-    Balance: 2485
-  }
+  dataTransaction: Transaction;
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private store: Store<any>,
+  ) {
+    this.store.select(getSelectedTransactions).subscribe(data => {
+      if( data ){
+        this.dataTransaction = data
+      } else {
+        this.router.navigate([`dashboard/account`]);
+      }
+    })
+   }
 
   ngOnInit(): void {
   }
