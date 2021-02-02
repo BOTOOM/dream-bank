@@ -9,6 +9,10 @@ import { AccountRoutingModule } from './account-routing.module';
 import { AllAcountsComponent } from './components/all-acounts/all-acounts.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { TransactionDetailComponent } from './components/transaction-detail/transaction-detail.component';
+import { StoreModule } from '@ngrx/store';
+import * as fromAccount from './reducers/account.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { AccountEffects } from './effects/account.effects';
 
 
 @NgModule({
@@ -21,7 +25,9 @@ import { TransactionDetailComponent } from './components/transaction-detail/tran
     CommonModule,
     MatCardModule,
     SharedModule,
-    AccountRoutingModule
+    AccountRoutingModule,
+    StoreModule.forFeature(fromAccount.accountFeatureKey, fromAccount.reducer),
+    EffectsModule.forFeature([AccountEffects])
   ]
 })
 export class AccountModule { }

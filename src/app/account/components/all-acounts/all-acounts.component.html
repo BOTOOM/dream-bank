@@ -20,7 +20,9 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let data of dataAccounts" (click)="selectAccount(data)">
-                                <th scope="row"></th>
+                                <th ><span class="material-icons">
+                                    {{data.Type |lowercase }}
+                                    </span></th>
                                 <td> {{data.Type}} </td>
                                 <td> {{data.AccountName}} </td>
                                 <td>{{data.Status}}</td>

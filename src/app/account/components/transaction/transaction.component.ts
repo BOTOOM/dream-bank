@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { loadTransactions, loadSelectedTransaction } from '../../actions/account.actions';
+import { getSelectedAccounts, getTransactions } from '../../selectors/account.selectors';
+import { Transaction } from '../../models/transaction.model';
 
 @Component({
   selector: 'app-transaction',
@@ -8,34 +12,35 @@ import { Router } from '@angular/router';
 })
 export class TransactionComponent implements OnInit {
 
-  dataTransaction = [
-    {
-      Date: new Date(),
-      Description: 'PAYMENT',
-      Status: 'Acredited',
-      Currency: "USD",
-      Value: -2485,
-      Balance: 2485
-    },
-    {
-      Date: new Date(),
-      Description: 'IVA',
-      Status: 'Denied',
-      Currency: 'USD',
-      Value: 37895,
-      Balance: 37895
-    },
-  ]
+  dataTransaction: Transaction[] = []
 
   constructor(
     private router: Router,
-  ) { }
+    private store: Store<any>,
+
+  ) { 
+    this.store.select(getSelectedAccounts).subscribe(data => {
+      if( data ){
+        this.store.dispatch(loadTransactions(data))
+      } else {
+        this.router.navigate([`dashboard/account`]);
+      }
+    })
+  }
 
   ngOnInit(): void {
+    this.store.select(getTransactions).subscribe( dataTransactions => {
+      if(dataTransactions) {
+        if( dataTransactions.data ) {
+          this.dataTransaction = dataTransactions.data
+        }
+      }
+    } )
   }
 
   selectTransaction(data) {
     console.log(data)
+    this.store.dispatch(loadSelectedTransaction(data))
     this.router.navigate([`dashboard/account/transaction-detail`]);
 
   }
