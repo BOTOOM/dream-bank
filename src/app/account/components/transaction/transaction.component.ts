@@ -40,6 +40,7 @@ export class TransactionComponent implements OnInit {
 
   selectTransaction(data) {
     console.log(data)
+    this.store.dispatch(loadSelectedTransaction(data))
     this.router.navigate([`dashboard/account/transaction-detail`]);
 
   }
