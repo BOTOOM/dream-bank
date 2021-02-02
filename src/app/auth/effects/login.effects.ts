@@ -9,6 +9,7 @@ import * as LoginActions from '../actions/login.actions';
 import { LoginService } from '../service/login.service';
 import { CookieHandlerService } from '../../shared/service/cookie-handler.service';
 import { Router } from '@angular/router';
+import { User } from '../models/user.model';
 
 
 @Injectable()
@@ -25,9 +26,13 @@ export class LoginEffects {
               data.forEach((doc) => {
                     console.log(doc.data());
                     console.log(doc.id);
-                    const usetObj = {
+                    const dataObj: any = doc.data();
+                    const usetObj: User = {
                       id: doc.id,
-                      data: doc.data()
+                      data: {
+                        Firstname: dataObj.Firstname,
+                        Lastname: dataObj.Lastname
+                      }
                     }
                     this.cookieHandlerService.setCookie('UserCookie', JSON.stringify(usetObj))
                     this.router.navigate(['/dashboard/account']);
